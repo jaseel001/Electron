@@ -4,8 +4,9 @@ require('../less/main.less');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var routes = require('./config/routes');
 
-var Entry = React.createClass({
+/*var Entry = React.createClass({
   render: function(){
     return (
       <div className="myDiv">
@@ -15,4 +16,5 @@ var Entry = React.createClass({
   }
 });
 
-ReactDOM.render(<Entry />, document.getElementById('content'));
+ReactDOM.render(<Entry />, document.getElementById('content'));*/
+ReactDOM.render(routes, document.getElementById('content'));
