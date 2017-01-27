@@ -3,6 +3,12 @@ var PropTypes = React.PropTypes;
 var transparentBg = require('../styles');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+
+const MyAwesomeReactComponent = () => (
+  <RaisedButton label="Default" />
+);
 
 function Home (props) {
   return (
@@ -25,7 +31,7 @@ function Home (props) {
           </div>
           <div className="form-group col-sm-4 col-sm-offset-4">
             <button
-              className="btn btn-block btn-success"
+              className="btn btn-block btn-success btn-login"
               type="submit">
                 Login
             </button>
@@ -35,6 +41,9 @@ function Home (props) {
       <div className="col-sm-12">
         <Link to='/register'>
           <p>if you have no account register here</p>
+          <MuiThemeProvider>
+            <MyAwesomeReactComponent />
+          </MuiThemeProvider>
         </Link>
       </div>
     </div>

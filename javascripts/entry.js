@@ -5,6 +5,9 @@ require('../less/main.less');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var routes = require('./config/routes');
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
 
 /*var Entry = React.createClass({
   render: function(){
