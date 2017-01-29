@@ -37,7 +37,6 @@ var PromptContainer = React.createClass({
   render: function () {
     return (
     <div>
-      <Header />
       <Prompt
         onSubmitUser={this.handleSubmitUser}
         onUpdateUser={this.handleUpdateUser}
