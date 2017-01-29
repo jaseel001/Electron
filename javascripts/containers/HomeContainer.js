@@ -23,22 +23,22 @@ var PromptContainer = React.createClass({
       username: '',
       password: ''
     });
-    var that = this;
+    /*var that = this;
     userEntryHelpers.login(this.state)
      .then(function(user){
-       if(user.status === 200){
+       //if(user.status === 200){
           console.log(user);
           webStorage.setItem('token', user.data.data.token);
-          webStorage.setItem('user', user.data.data.user.username);
-          that.context.router.push({
+          webStorage.setItem('user', user.data.data.user.username);*/
+          this.context.router.push({
             pathname: '/dashboard',
             query: {
-              data: user
+              //data: user
             }
           })
 
-       }
-     })
+       //}
+     /*})*/
   },
   handleUpdateUsername: function (event) {
     this.setState({

@@ -5,46 +5,44 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
-const MyAwesomeReactComponent = () => (
-  <RaisedButton label="Default" />
-);
+/*const MyAwesomeReactComponent = () => (
+  
+);*/
 
 function Home (props) {
   return (
     <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg.transparentBg}>
       <div className="col-sm-12">
-        <form onSubmit={props.onSubmitUser}>
-          <div className="form-group">
-            <input
-              className='form-control'
-              onChange={props.onUpdateUsername}
-              placeholder='Username'
-              type='text'
-              value={props.username} />
-            <input
-              className='form-control'
-              onChange={props.onUpdatePassword}
-              placeholder='Password'
-              type='password'
-              value={props.password} style={transparentBg.topmargin}/>
+        <form onSubmit={props.onSubmitUser} className="col-sm-12">
+          <p className="logo">e<span className="logo-r">R</span>p</p>
+          <div className="form-group col-sm-12">
+            <MuiThemeProvider>
+              <TextField
+                  hintText="Username"
+                  onChange={props.onUpdateUsername}
+                  value={props.username}
+              />
+            </MuiThemeProvider>
+            <br />
+            <MuiThemeProvider>
+              <TextField
+                  hintText="Password"
+                  onChange={props.onUpdatePassword}
+                  type='password'
+                  value={props.password}
+              />
+            </MuiThemeProvider>
           </div>
-          <div className="form-group col-sm-4 col-sm-offset-4">
-            <button
-              className="btn btn-block btn-success btn-login"
-              type="submit">
-                Login
-            </button>
+          <br />
+          <div className="form-group col-sm-12">
+            <MuiThemeProvider>
+              <RaisedButton label="Login"
+                            type="submit" />
+            </MuiThemeProvider>
           </div>
         </form>
-      </div>
-      <div className="col-sm-12">
-        <Link to='/register'>
-          <p>if you have no account register here</p>
-          <MuiThemeProvider>
-            <MyAwesomeReactComponent />
-          </MuiThemeProvider>
-        </Link>
       </div>
     </div>
   )
