@@ -1,4 +1,5 @@
 var React = require('react');
+//var Tabs = require('Tabs');
 var PropTypes = React.PropTypes;
 var transparentBg = require('../styles').transparentBg;
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -22,15 +23,39 @@ import Attachment from 'material-ui/svg-icons/file/attachment';
 import FileDownload from 'material-ui/svg-icons/file/file-download';
 import Laptop from 'material-ui/svg-icons/hardware/laptop';
 import Chat from 'material-ui/svg-icons/communication/chat';
+import Recent from 'material-ui/svg-icons/notification/folder-special';
 
 import {red500, yellow500, blue500} from 'material-ui/styles/colors';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import Avatar from 'material-ui/Avatar';
+import IconButton from 'material-ui/IconButton';
+
+import {Tabs, Tab} from 'material-ui/Tabs';
+
 
 const iconStyles = {
   margin: 10,
 };
+
+function handleActive(tab) {
+  alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
+}
+
+const TabsExampleSimple = () => (
+  <Tabs>
+      <Tab label="Item One" >
+      </Tab>
+    <Tab label="Item Two" >
+    </Tab>
+    <Tab
+      label="onActive"
+      data-route="/login"
+      onActive={handleActive}
+    >
+    </Tab>
+  </Tabs>
+);
 
 
 function Prompt (props) {
@@ -111,23 +136,53 @@ function Prompt (props) {
       <div className="col-sm-10 padding-nil">
           <div className="col-sm-12 padding-nil top-menu">
             <MuiThemeProvider>
-              <ArrowBack style={iconStyles} />
+              <IconButton tooltip="Back" tooltipPosition="bottom-center">
+                <ArrowBack style={iconStyles} className="icon-style"/>
+              </IconButton>
             </MuiThemeProvider>
             <MuiThemeProvider>
-              <ArrowForward style={iconStyles} />
+              <IconButton tooltip="Forward" tooltipPosition="bottom-center">
+                <ArrowForward style={iconStyles} className="icon-style"/>
+              </IconButton>
             </MuiThemeProvider>
             <MuiThemeProvider>
-              <Refresh style={iconStyles} />
+              <IconButton tooltip="Refresh" tooltipPosition="bottom-center">
+                <Refresh style={iconStyles} className="icon-style"/>
+              </IconButton>
             </MuiThemeProvider>
             <MuiThemeProvider>
-              <Favorite style={iconStyles} />
+              <IconButton tooltip="Recent" tooltipPosition="bottom-center">
+                <Recent style={iconStyles} className="icon-style"/>
+              </IconButton>
             </MuiThemeProvider>
             <MuiThemeProvider>
-              <ActionHome style={iconStyles} />
+              <IconButton tooltip="Favorite" tooltipPosition="bottom-center">
+                <Favorite style={iconStyles} className="icon-style"/>
+              </IconButton>
             </MuiThemeProvider>
             <MuiThemeProvider>
-              <Close style={iconStyles} />
+              <IconButton tooltip="Home" tooltipPosition="bottom-center">
+                <ActionHome style={iconStyles} className="icon-style"/>
+              </IconButton>
             </MuiThemeProvider>
+            <MuiThemeProvider>
+              <IconButton tooltip="Close" tooltipPosition="bottom-center">
+                <Close style={iconStyles} className="icon-style"/>
+              </IconButton>
+            </MuiThemeProvider>
+          </div>
+          <div className="col-sm-12 padding-nil top-navbar">
+            <MuiThemeProvider>
+               <TabsExampleSimple />
+            </MuiThemeProvider>
+          </div>
+          <div className="col-sm-12 padding-nil">
+            <div className="col-sm-11 padding-nil">
+              content
+            </div>
+            <div className="col-sm-1 padding-nil">
+                side
+            </div>
           </div>
       </div>
     </div>
