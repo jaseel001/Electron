@@ -33,9 +33,31 @@ import IconButton from 'material-ui/IconButton';
 
 import {Tabs, Tab} from 'material-ui/Tabs';
 
+import ReactDOM from 'react-dom';
+import Draggable from 'react-draggable';
+
+import TextField from 'material-ui/TextField';
+
+
+
 
 const iconStyles = {
   margin: 10,
+};
+
+const style = {
+  paper: {
+    display: 'inline-block',
+    float: 'left',
+    margin: '16px 32px 16px 0',
+  },
+  rightIcon: {
+    textAlign: 'center',
+    lineHeight: '24px',
+  },
+  floatStyle: {
+    color: '#000',
+  }
 };
 
 function handleActive(tab) {
@@ -44,16 +66,19 @@ function handleActive(tab) {
 
 const TabsExampleSimple = () => (
   <Tabs>
-      <Tab label="Item One" >
+      <Tab label="Qutation Entry" >
       </Tab>
-    <Tab label="Item Two" >
+    <Tab label="Invoice" >
     </Tab>
     <Tab
-      label="onActive"
+      label="Product"
       data-route="/login"
       onActive={handleActive}
     >
     </Tab>
+    <Tab label="Sales" >
+    </Tab>
+
   </Tabs>
 );
 
@@ -62,6 +87,9 @@ function Prompt (props) {
   return (
     <div className="col-sm-12 padding-nil">
       <div className="col-sm-2 padding-nil right-div">
+        <div className="col-sm-12 padding-nil layout-logo">
+          <p className="logo">e<span className="logo-r">R</span>p</p>
+        </div>
         <div className="col-sm-12 padding-nil shortcut-menu">
           <div className="col-sm-12 padding-nil menu-head">
               Shortcuts
@@ -118,71 +146,155 @@ function Prompt (props) {
           <div className="col-sm-12 padding-nil module-details">
           </div>
         </div>
-        <div className="col-sm-12 padding-nil user-details">
-          <MuiThemeProvider>
-            <List>
-              <ListItem
-                disabled={true}
-                leftAvatar={
-                  <Avatar src="images/uxceo-128.jpg" />
-                }
-              >
-              Username
-              </ListItem>
-            </List>
-          </MuiThemeProvider>
-        </div>
       </div>
       <div className="col-sm-10 padding-nil">
           <div className="col-sm-12 padding-nil top-menu">
-            <MuiThemeProvider>
-              <IconButton tooltip="Back" tooltipPosition="bottom-center">
-                <ArrowBack style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <IconButton tooltip="Forward" tooltipPosition="bottom-center">
-                <ArrowForward style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <IconButton tooltip="Refresh" tooltipPosition="bottom-center">
-                <Refresh style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <IconButton tooltip="Recent" tooltipPosition="bottom-center">
-                <Recent style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <IconButton tooltip="Favorite" tooltipPosition="bottom-center">
-                <Favorite style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <IconButton tooltip="Home" tooltipPosition="bottom-center">
-                <ActionHome style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
-            <MuiThemeProvider>
-              <IconButton tooltip="Close" tooltipPosition="bottom-center">
-                <Close style={iconStyles} className="icon-style"/>
-              </IconButton>
-            </MuiThemeProvider>
+            <div className="col-sm-10 padding-nil">
+              <MuiThemeProvider>
+                <IconButton tooltip="Back" tooltipPosition="left">
+                  <ArrowBack style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Forward" tooltipPosition="left">
+                  <ArrowForward style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Refresh" tooltipPosition="left-center">
+                  <Refresh style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Recent" tooltipPosition="left">
+                  <Recent style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Favorite" tooltipPosition="left">
+                  <Favorite style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Home" tooltipPosition="left">
+                  <ActionHome style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Close" tooltipPosition="left">
+                  <Close style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+            </div>
+            <div className="col-sm-2 padding-nil user-details pull-right">
+              <MuiThemeProvider>
+                <List className="padding-0">
+                  <ListItem
+                    disabled={true}
+                    leftAvatar={
+                      <Avatar src="images/uxceo-128.jpg" />
+                    }
+                  >
+                  Username
+                  </ListItem>
+                </List>
+              </MuiThemeProvider>
+            </div>
           </div>
           <div className="col-sm-12 padding-nil top-navbar">
             <MuiThemeProvider>
                <TabsExampleSimple />
             </MuiThemeProvider>
           </div>
-          <div className="col-sm-12 padding-nil">
-            <div className="col-sm-11 padding-nil">
-              content
+          <div className="col-sm-12 padding-nil main-div">
+            <div className="col-sm-12 padding-nil data-container">
+              <div className="col-sm-12 padding-nil sub-heading">
+                  Qutation Entry
+              </div>
+              <div className="col-sm-12 padding-nil quatation-top">
+                <MuiThemeProvider>
+                  <div>
+                    <TextField
+                        hintText="Quotation No"
+                        floatingLabelText="Quotation No"
+                        floatingLabelFixed={true}
+                        floatingLabelStyle={style.floatStyle}
+                        />
+                    <TextField
+                        hintText="Customer No"
+                        floatingLabelText="Customer No"
+                        floatingLabelFixed={true}
+                        floatingLabelStyle={style.floatStyle}
+                        />
+                    <TextField
+                        hintText="Customer Name"
+                        floatingLabelText="Customer Name"
+                        floatingLabelFixed={true}
+                        floatingLabelStyle={style.floatStyle}
+                        />
+                  </div>
+                </MuiThemeProvider>
+              </div>
             </div>
-            <div className="col-sm-1 padding-nil">
-                side
+            <Draggable defaultPosition={{x: 0, y: 0}}  bounds="parent">
+            <div className="col-sm-1 padding-nil side-icons">
+                <MuiThemeProvider>
+                  <IconButton tooltip="Search" tooltipPosition="top-center">
+                    <Search style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Populate" tooltipPosition="top-center">
+                    <Refresh style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Add" tooltipPosition="top-center">
+                    <AddBox style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Duplicate" tooltipPosition="top-center">
+                    <ContentCopy style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Delete" tooltipPosition="top-center">
+                    <Delete style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Zoom" tooltipPosition="top-center">
+                    <ZoomIn style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Chat" tooltipPosition="top-center">
+                    <Chat style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Attachments" tooltipPosition="top-center">
+                    <Attachment style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Output" tooltipPosition="top-center">
+                    <FileDownload style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Sys Info" tooltipPosition="top-center">
+                    <Laptop style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                  <IconButton tooltip="Help" tooltipPosition="top-center">
+                    <Help style={iconStyles} className="icon-style"/>
+                  </IconButton>
+                </MuiThemeProvider>
             </div>
+          </Draggable>
           </div>
       </div>
     </div>
