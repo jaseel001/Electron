@@ -5,25 +5,25 @@ var Route = ReactRouter.Route;
 var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 var Main = require('../components/Main');
-var Start = require('../components/Start');
 var HomeContainer = require("../containers/HomeContainer");
 var PromptContainer = require('../containers/PromptContainer');
-var ConfirmBattleContainer = require('../containers/ConfirmBattleContainer');
-var ResultsContainer = require('../containers/ResultsContainer');
-var RegisterContainer = require("../containers/RegisterContainer");
-var TeachersContainer = require("../containers/TeachersContainer");
+var QuotationContainer = require("../containers/QuotationContainer");
+var InvoiceContainer = require("../containers/InvoiceContainer");
+var ProductContainer = require("../containers/ProductContainer");
+var SalesContainer = require("../containers/SalesContainer");
 
 var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={HomeContainer} />
       <Route path='login' component={HomeContainer} />
-      <Route path='register' component={RegisterContainer} />
-      <Route path='dashboard' header='Dashboard' component={PromptContainer} />
-      <Route path='playerTwo/:playerOne' header='Player Two' component={PromptContainer} />
-      <Route path='battle' component={ConfirmBattleContainer} />
-      <Route path='results' component={ResultsContainer} />
-      <Route path='teachers' component={TeachersContainer} />
+      <Route path='user/' component={PromptContainer}>
+          <IndexRoute component={QuotationContainer} />
+          <Route path='Quotation' component={QuotationContainer} />
+          <Route path='invoice' component={InvoiceContainer} />
+          <Route path='product' component={ProductContainer} />
+          <Route path='sales' component={SalesContainer} />
+      </Route>
     </Route>
   </Router>
 );

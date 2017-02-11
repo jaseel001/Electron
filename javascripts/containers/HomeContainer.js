@@ -31,7 +31,7 @@ var PromptContainer = React.createClass({
           webStorage.setItem('token', user.data.data.token);
           webStorage.setItem('user', user.data.data.user.username);*/
           this.context.router.push({
-            pathname: '/dashboard',
+            pathname: '/user/',
             query: {
               //data: user
             }

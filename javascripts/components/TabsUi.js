@@ -10,17 +10,17 @@ function TabsUi (props) {
   return (
        <MuiThemeProvider>
           <Tabs>
-            <Tab label="Qutation Entry" >
+            <Tab label="Qutation Entry" data-route="/user/quotation">
             </Tab>
-          <Tab label="Invoice" >
+          <Tab label="Invoice" data-route="/user/invoice">
           </Tab>
           <Tab
             label="Product"
-            data-route="/login"
+            data-route="/user/product"
             /*onActive={}*/
           >
           </Tab>
-          <Tab label="Sales" >
+          <Tab label="Sales" data-route="/user/sales">
           </Tab>
 
         </Tabs>

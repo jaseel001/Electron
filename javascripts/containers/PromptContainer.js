@@ -54,7 +54,7 @@ var PromptContainer = React.createClass({
               <TabsUiContainer />
           </div>
           <div className="col-sm-12 padding-nil main-div">
-              <QuotationContainer />
+              {this.props.children}
               <RightMenuContainer />
           </div>
       </div>

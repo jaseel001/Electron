@@ -1,6 +1,6 @@
 var React = require('react');
-var RightMenu = require('../components/RightMenu');
-var RightMenuContainer = React.createClass({
+var Sales = require('../components/Sales');
+var SalesContainer = React.createClass({
   getInitialState: function () {
     return {
       null
@@ -17,9 +17,9 @@ var RightMenuContainer = React.createClass({
   },
   render: function () {
     return (
-      <RightMenu />
+      <Sales  />
     )
   }
 });
 
-module.exports = RightMenuContainer;
+module.exports = SalesContainer;
