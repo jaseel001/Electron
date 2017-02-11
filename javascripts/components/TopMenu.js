@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import IconButton from 'material-ui/IconButton';
 import ArrowBack from 'material-ui/svg-icons/navigation/arrow-back';
@@ -21,17 +22,17 @@ function TopMenu (props) {
       <div className="col-sm-12 padding-nil top-menu">
             <div className="col-sm-10 padding-nil">
               <MuiThemeProvider>
-                <IconButton tooltip="Back" tooltipPosition="bottom-center">
+                <IconButton tooltip="Back" tooltipPosition="bottom-center" onClick={props.backButtonClick}>
                   <ArrowBack style={iconStyles} className="icon-style"/>
                 </IconButton>
               </MuiThemeProvider>
               <MuiThemeProvider>
-                <IconButton tooltip="Forward" tooltipPosition="bottom-center">
+                <IconButton tooltip="Forward" tooltipPosition="bottom-center" onClick={props.forwardButtonClick}>
                   <ArrowForward style={iconStyles} className="icon-style"/>
                 </IconButton>
               </MuiThemeProvider>
               <MuiThemeProvider>
-                <IconButton tooltip="Refresh" tooltipPosition="bottom-center">
+                <IconButton tooltip="Refresh" tooltipPosition="bottom-center" onClick={props.refreshButtonClick}>
                   <Refresh style={iconStyles} className="icon-style"/>
                 </IconButton>
               </MuiThemeProvider>
@@ -51,7 +52,7 @@ function TopMenu (props) {
                 </IconButton>
               </MuiThemeProvider>
               <MuiThemeProvider>
-                <IconButton tooltip="Close" tooltipPosition="bottom-center">
+                <IconButton tooltip="Close" tooltipPosition="bottom-center" onClick={props.closeButtonClicked}>
                   <Close style={iconStyles} className="icon-style"/>
                 </IconButton>
               </MuiThemeProvider>
@@ -72,6 +73,14 @@ function TopMenu (props) {
             </div>
           </div>
   )
+}
+
+TopMenu.PropTypes = {
+  backButtonClick: PropTypes.func.isRequired,
+  forwardButtonClick: PropTypes.func.isRequired,
+  refreshButtonClick: PropTypes.func.isRequired,
+  closeButtonClicked: PropTypes.func.isRequired,
+
 }
 
 module.exports = TopMenu;

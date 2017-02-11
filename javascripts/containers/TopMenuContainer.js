@@ -14,12 +14,25 @@ var TopMenuContainer = React.createClass({
   handleUserApproval: function(id) {
     
   },
-  handleMenu: function(){
-    
+  handleBack: function(e){
+    window.history.back();
+  },
+  handleForward: function(e){
+    window.history.forward();
+  },
+  handleRefresh: function(e){
+    location.reload();
+  },
+  handleClose: function(e){
+    var win = window.open("about:blank", "_self");
+    win.close();
   },
   render: function () {
     return (
-      <TopMenu />
+      <TopMenu backButtonClick={this.handleBack} 
+      forwardButtonClick={this.handleForward}
+      refreshButtonClick={this.handleRefresh}
+      closeButtonClicked={this.handleClose}/>
     )
   }
 });
