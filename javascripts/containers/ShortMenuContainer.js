@@ -2,6 +2,9 @@ var React = require('react');
 var ShortMenu = require('../components/ShortMenu');
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import EXpandMore from 'material-ui/svg-icons/navigation/expand-more';
+import { connect } from 'react-redux';
+import store from '../store';
+import { shortMenuChange } from '../actions/main-layout-actions';
 var ShortMenuContainer = React.createClass({
   getInitialState: function () {
     return {
@@ -14,22 +17,22 @@ var ShortMenuContainer = React.createClass({
   handleUserApproval: function(id) {
     
   },
-  handleMenu: function(){
-    
+  handleShortMenu: function(){
+    store.dispatch(shortMenuChange(!this.props.shortMenuState));
   },
   render: function () {
     return (
-      <div className="col-sm-12 padding-nil shortcut-menu">
-        <div className="col-sm-12 padding-nil menu-head">
-            Shortcuts
-            <MuiThemeProvider>
-              <EXpandMore className="pull-right"/>
-            </MuiThemeProvider>
-        </div>
-        <ShortMenu />
-      </div>
+        <ShortMenu shortMenuOption={this.handleShortMenu} 
+        shortMenuState={this.props.shortMenuState}/>
     )
   }
 });
 
-module.exports = ShortMenuContainer;
+const mapStateToProps = function(store) {
+  return {
+    shortMenuState: store.mainLayoutState.shortMenuState
+  };
+};
+
+
+module.exports = connect(mapStateToProps)(ShortMenuContainer);;

@@ -2,6 +2,9 @@ var React = require('react');
 var ModuleList = require('../components/ModuleList');
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import EXpandMore from 'material-ui/svg-icons/navigation/expand-more';
+import { connect } from 'react-redux';
+import store from '../store';
+import { moduleListChange } from '../actions/main-layout-actions';
 var ModuleListContainer = React.createClass({
   getInitialState: function () {
     return {
@@ -14,14 +17,21 @@ var ModuleListContainer = React.createClass({
   handleUserApproval: function(id) {
     
   },
-  handleMenu: function(){
-    
+  handleModuleList: function(){
+    store.dispatch(moduleListChange(!this.props.moduleListState));
   },
   render: function () {
     return (
-        <ModuleList />
+        <ModuleList moduleListOption={this.handleModuleList} 
+        moduleListState={this.props.moduleListState}/>
     )
   }
 });
 
-module.exports = ModuleListContainer;
+const mapStateToProps = function(store) {
+  return {
+    moduleListState: store.mainLayoutState.moduleListState
+  };
+};
+
+module.exports = connect(mapStateToProps)(ModuleListContainer);

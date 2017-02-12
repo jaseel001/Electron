@@ -11,7 +11,7 @@ function TabsUi (props) {
        var TabsUi = props.items.map(function(tab) {
           return (
             <Tab key={tab.name} label={tab.name} 
-                 onClick={props.onClickTabs.bind(this,tab.route)}>
+                 onClick={props.onClickTabs.bind(null,tab.route)}>
             </Tab>
           );
        });

@@ -1,4 +1,6 @@
 require('../less/main.less');
+import store from './store';
+import { Provider } from 'react-redux';
 
 'use strict';
 
@@ -9,4 +11,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 
-ReactDOM.render(routes, document.getElementById('content'));
+//ReactDOM.render(routes, document.getElementById('content'));
+
+ReactDOM.render(
+  <Provider store={store}>{routes}</Provider>,
+  document.getElementById('content')
+);
