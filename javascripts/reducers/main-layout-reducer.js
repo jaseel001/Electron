@@ -2,7 +2,8 @@ import * as types from '../actions/action-types';
 
 const initialState = {
   shortMenuState: true,
-  moduleListState: true
+  moduleListState: true,
+  sideMenuState: true
 };
 
 const mainLayoutReducer = function(state = initialState, action) {
@@ -16,6 +17,10 @@ const mainLayoutReducer = function(state = initialState, action) {
     case types.MODULELIST_SHOW_CHANGE:
       return Object.assign({}, state, {
         moduleListState: action.status
+      })
+    case types.SIDEMENU_SHOW_CHANGE:
+      return Object.assign({}, state, {
+        sideMenuState: action.status
       })
 
   }

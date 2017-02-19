@@ -13,3 +13,10 @@ export function moduleListChange(status) {
     status
   };
 }
+
+export function sideMenuChange(status) {
+	return {
+		type: types.SIDEMENU_SHOW_CHANGE,
+		status
+	};
+}

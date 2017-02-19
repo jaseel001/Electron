@@ -9,6 +9,7 @@ import Close from 'material-ui/svg-icons/navigation/close';
 import Favorite from 'material-ui/svg-icons/action/favorite';
 import Recent from 'material-ui/svg-icons/notification/folder-special';
 import ActionHome from 'material-ui/svg-icons/action/home';
+import Widgets from 'material-ui/svg-icons/device/widgets';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import Avatar from 'material-ui/Avatar';
@@ -49,6 +50,11 @@ function TopMenu (props) {
               <MuiThemeProvider>
                 <IconButton tooltip="Home" tooltipPosition="bottom-center">
                   <ActionHome style={iconStyles} className="icon-style"/>
+                </IconButton>
+              </MuiThemeProvider>
+              <MuiThemeProvider>
+                <IconButton tooltip="Side Menu" tooltipPosition="bottom-center" onClick={props.sideMenuOption}>
+                  <Widgets style={iconStyles} className={`icon-style ${props.sideMenuState == true? 'icon-active' : ''}`}/>
                 </IconButton>
               </MuiThemeProvider>
               <MuiThemeProvider>

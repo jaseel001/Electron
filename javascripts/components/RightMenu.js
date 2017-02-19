@@ -19,8 +19,9 @@ const iconStyles = {
 };
 
 function RightMenu (props) {
-  return (
-      <Draggable defaultPosition={{x: 0, y: 0}}  bounds="parent">
+  if(props.sideMenuState == true){
+      return (
+          <Draggable defaultPosition={{x: 0, y: 0}}  bounds="parent">
             <div className="col-sm-1 padding-nil side-icons">
                 <MuiThemeProvider>
                   <IconButton tooltip="Search" tooltipPosition="top-center">
@@ -79,7 +80,13 @@ function RightMenu (props) {
                 </MuiThemeProvider>
             </div>
           </Draggable>
-  )
+        )
+  }else{
+    return(
+      null
+    )
+  }
+  
 }
 
 module.exports = RightMenu;
