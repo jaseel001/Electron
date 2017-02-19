@@ -6,7 +6,7 @@ var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 var Main = require('../components/Main');
 var HomeContainer = require("../containers/HomeContainer");
-var PromptContainer = require('../containers/PromptContainer');
+var MainLayoutContainer = require('../containers/MainLayoutContainer');
 var QuotationContainer = require("../containers/QuotationContainer");
 var InvoiceContainer = require("../containers/InvoiceContainer");
 var ProductContainer = require("../containers/ProductContainer");
@@ -17,7 +17,7 @@ var routes = (
     <Route path='/' component={Main}>
       <IndexRoute component={HomeContainer} />
       <Route path='login' component={HomeContainer} />
-      <Route path='user/' component={PromptContainer}>
+      <Route path='user/' component={MainLayoutContainer}>
           <IndexRoute component={QuotationContainer} />
           <Route path='Quotation' component={QuotationContainer} />
           <Route path='invoice' component={InvoiceContainer} />
